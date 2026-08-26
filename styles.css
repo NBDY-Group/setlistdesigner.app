@@ -1,0 +1,195 @@
+:root {
+  --background: #090909;
+  --surface: #171717;
+  --pane: #111111;
+  --line: #303030;
+  --primary: #f5f5f5;
+  --secondary: #a3a3a3;
+  --tertiary: #7f7f7f;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  background: var(--background);
+  color: var(--primary);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+main {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 48px 24px 96px;
+}
+
+.kicker {
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  color: var(--tertiary);
+  text-transform: uppercase;
+}
+
+.kicker a {
+  color: var(--tertiary);
+  text-decoration: none;
+}
+
+.kicker a:hover {
+  color: var(--primary);
+}
+
+h1 {
+  font-size: 40px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  font-weight: 650;
+  margin: 12px 0 8px;
+}
+
+h2 {
+  font-size: 21px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 40px 0 8px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+p,
+li {
+  color: var(--secondary);
+}
+
+p {
+  margin: 12px 0;
+}
+
+strong {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--line);
+}
+
+a:hover {
+  text-decoration-color: var(--primary);
+}
+
+ul {
+  margin: 12px 0;
+  padding-left: 22px;
+}
+
+li {
+  margin: 6px 0;
+}
+
+.updated {
+  font-size: 14px;
+  color: var(--tertiary);
+  margin-bottom: 24px;
+}
+
+.summary {
+  background: var(--pane);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 18px 20px;
+  margin: 24px 0;
+}
+
+.summary p {
+  color: var(--primary);
+  margin: 0;
+}
+
+.lede {
+  font-size: 20px;
+  color: var(--secondary);
+  margin: 8px 0 24px;
+}
+
+.meta-line {
+  font-size: 14px;
+  color: var(--tertiary);
+  font-family: ui-monospace, "SF Mono", SFMono-Regular, Menlo, monospace;
+  margin: 16px 0 32px;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 28px 0;
+}
+
+.button {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.button.primary {
+  background: var(--primary);
+  color: var(--background);
+}
+
+.button.secondary {
+  border: 1px solid var(--line);
+  color: var(--primary);
+}
+
+footer {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 24px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  font-size: 14px;
+  color: var(--tertiary);
+}
+
+footer a {
+  color: var(--tertiary);
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: var(--primary);
+}
+
+footer .spacer {
+  flex: 1;
+}
+
+dl dt {
+  color: var(--primary);
+  font-weight: 600;
+  margin-top: 20px;
+}
+
+dl dd {
+  color: var(--secondary);
+  margin: 4px 0 0;
+}
