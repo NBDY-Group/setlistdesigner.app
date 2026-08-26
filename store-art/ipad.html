@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1376, initial-scale=1">
+  <title>Setlist Designer iPad Store Art</title>
+  <style>
+    :root { --green: #30d158; --line: #303030; }
+    * { box-sizing: border-box; }
+    html, body { width: 1376px; height: 1032px; margin: 0; overflow: hidden; }
+    body {
+      position: relative;
+      background:
+        radial-gradient(circle at 84% 18%, rgba(48, 209, 88, .2), transparent 430px),
+        radial-gradient(circle at 15% 86%, rgba(48, 209, 88, .08), transparent 360px),
+        #080808;
+      color: #f5f5f5;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .masthead {
+      position: absolute;
+      top: 54px;
+      left: 70px;
+      right: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .brand { display: flex; align-items: center; }
+    .brand img { width: 132px; height: 74px; object-fit: contain; }
+    .platform {
+      color: #8a8a8a;
+      font: 700 12px/1 ui-monospace, "SF Mono", monospace;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .copy { position: absolute; z-index: 3; top: 142px; left: 88px; width: 1180px; text-align: center; }
+    .kicker {
+      margin: 0 0 17px;
+      color: var(--green);
+      font: 700 13px/1 ui-monospace, "SF Mono", monospace;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 0;
+      font-size: 69px;
+      line-height: .98;
+      letter-spacing: -.055em;
+      font-weight: 720;
+    }
+    h1 span { color: var(--green); }
+    .subhead { margin: 17px auto 0; max-width: 920px; color: #aaa; font-size: 20px; line-height: 1.4; }
+    .device {
+      position: absolute;
+      z-index: 2;
+      left: 50%;
+      top: 310px;
+      width: 950px;
+      padding: 16px;
+      border: 1px solid #686868;
+      border-radius: 44px;
+      background: linear-gradient(145deg, #414141 0%, #0e0e0e 23%, #1d1d1d 73%, #484848 100%);
+      box-shadow:
+        inset 0 0 0 2px #111,
+        inset 0 0 0 3px rgba(255,255,255,.08),
+        0 52px 110px rgba(0,0,0,.65);
+      transform: translateX(-50%);
+    }
+    .device::before, .device::after {
+      content: "";
+      position: absolute;
+      top: -2px;
+      left: 25%;
+      width: 9%;
+      height: 2px;
+      border-radius: 4px 4px 0 0;
+      background: #727272;
+    }
+    .device::after { left: 36%; width: 5%; }
+    .camera {
+      position: absolute;
+      z-index: 3;
+      top: 5px;
+      left: 50%;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #020202;
+      box-shadow: 0 0 0 1px #444;
+    }
+    .screen {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      border: 1px solid #000;
+      border-radius: 29px;
+      background: #000;
+      box-shadow: 0 0 0 1px rgba(255,255,255,.08);
+    }
+    .screen img { width: 100%; height: 100%; display: block; object-fit: cover; }
+    .pill {
+      position: absolute;
+      z-index: 4;
+      left: 50%;
+      bottom: 32px;
+      padding: 10px 16px;
+      border: 1px solid rgba(48,209,88,.42);
+      border-radius: 5px;
+      background: rgba(8,8,8,.92);
+      color: #ddd;
+      font: 700 11px/1 ui-monospace, "SF Mono", monospace;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      transform: translateX(-50%);
+      backdrop-filter: blur(16px);
+    }
+    .pill::before { content: ""; width: 7px; height: 7px; margin-right: 9px; display: inline-block; border-radius: 50%; background: var(--green); box-shadow: 0 0 12px var(--green); }
+  </style>
+</head>
+<body>
+  <div class="masthead">
+    <div class="brand"><img src="/assets/sld-wordmark.png" alt="Setlist Designer"></div>
+    <span class="platform">iPad · iPhone · Mac</span>
+  </div>
+  <div class="copy">
+    <p class="kicker" id="kicker"></p>
+    <h1 id="headline"></h1>
+    <p class="subhead" id="subhead"></p>
+  </div>
+  <div class="device">
+    <span class="camera" aria-hidden="true"></span>
+    <div class="screen"><img id="screen" alt=""></div>
+  </div>
+  <div class="pill" id="pill"></div>
+  <script>
+    const frames = {
+      show: {
+        kicker: "Show Mode",
+        headline: "Every Change. <span>Before It Happens.</span>",
+        subhead: "Current rig, next rig and the exact actions between them—large enough to read under pressure.",
+        image: "/assets/ipad-show-mode.png",
+        pill: "Works Fully Offline"
+      },
+      assign: {
+        kicker: "Guitar Tech Workflow",
+        headline: "Every Song. Every Musician. <span>Every Rig.</span>",
+        subhead: "Assign guitars, tunings, capos, packs and stand slots in one deliberate view.",
+        image: "/assets/ipad-assign.png",
+        pill: "Conflict Warnings Included"
+      },
+      build: {
+        kicker: "Setlist Builder",
+        headline: "Build Tonight’s <span>Running Order.</span>",
+        subhead: "Songs, sections, encores and notes—reordered in seconds and ready for the whole crew.",
+        image: "/assets/ipad-set-builder.png",
+        pill: "Templates · Copies · Song Pool"
+      },
+      export: {
+        kicker: "Rich, Branded Exports",
+        headline: "Print A Page <span>The Crew Can Trust.</span>",
+        subhead: "Choose the useful columns, add the artist logo, then print A4, Letter or a sharp PDF.",
+        image: "/assets/ipad-export.png",
+        pill: "Uniform Columns · Auto Landscape"
+      }
+    };
+    const key = new URLSearchParams(location.search).get("shot") || "show";
+    const frame = frames[key] || frames.show;
+    document.getElementById("kicker").textContent = frame.kicker;
+    document.getElementById("headline").innerHTML = frame.headline;
+    document.getElementById("subhead").textContent = frame.subhead;
+    document.getElementById("screen").src = frame.image;
+    document.getElementById("screen").alt = frame.kicker;
+    document.getElementById("pill").textContent = frame.pill;
+  </script>
+</body>
+</html>
