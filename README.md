@@ -26,19 +26,14 @@ The app links to these exact URLs (see `App/AppLinks.swift`):
 - `https://setlistdesigner.app/terms`
 - `https://setlistdesigner.app/support`
 
+## Live infrastructure
+
+- [x] Namecheap DNS points the apex at the four GitHub Pages addresses.
+- [x] `www` points to `nbdy-group.github.io.` and redirects to the apex.
+- [x] GitHub Pages serves `https://setlistdesigner.app` with HTTPS enforced.
+
 ## Remaining owner steps
 
-- [ ] **DNS at Namecheap** (the domain currently points at Namecheap
-      parking). In Advanced DNS for `setlistdesigner.app`, remove the
-      parking records and add:
-      - `A` host `@` → `185.199.108.153`
-      - `A` host `@` → `185.199.109.153`
-      - `A` host `@` → `185.199.110.153`
-      - `A` host `@` → `185.199.111.153`
-      - `CNAME` host `www` → `nbdy-group.github.io.`
-- [ ] After DNS propagates, enforce HTTPS (GitHub provisions the
-      certificate automatically):
-      `gh api -X PUT repos/NBDY-Group/setlistdesigner.app/pages -F https_enforced=true`
 - [ ] Review the privacy policy and terms — legal acceptance is an owner
       gate. The operator is Nobody Management Ltd, trading as NBDY Software
       Solutions; confirm the governing-law choice (England and Wales).
