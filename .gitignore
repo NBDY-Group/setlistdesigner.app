@@ -1,0 +1,24 @@
+# OS / editor junk
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Never needed for this static site, but keep them out if tooling is ever added
+node_modules/
+dist/
+.next/
+build/
+__pycache__/
+*.py[cod]
+
+# Secrets (none are required by this site)
+.env
+.env.*
+!.env.example
+*.p8
+*.p12
+*.pem
+*.key
+*.mobileprovision

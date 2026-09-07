@@ -12,6 +12,36 @@ The publisher brand is **NBDY Software Solutions**. Every page also identifies
 Nobody Management Ltd as the legal entity and carries the UK company-number
 and registered-office disclosure required by `Docs/publisher-identity.md`.
 
+## Working on a new machine
+
+Prerequisites (no Node, no package manager, no build step):
+
+- `git`
+- Python 3.9+ (only for the local preview server and the publisher-identity
+  test; any static file server works for preview). Verified with Python 3.14.
+
+```bash
+git clone https://github.com/NBDY-Group/setlistdesigner.app.git
+cd setlistdesigner.app
+
+# Run the only automated check (every public page must carry the legal disclosure)
+python3 scripts/test_publisher_identity.py
+
+# Preview locally, then open http://localhost:8000
+python3 -m http.server 8000
+```
+
+Environment variables, config files, and secrets: none. Everything the site
+needs is committed. The only out-of-band items are GitHub access to
+`NBDY-Group/setlistdesigner.app` (Pages deploys from `main`) and the Namecheap
+DNS login for `setlistdesigner.app`.
+
+Note on visibility: GitHub Pages on the NBDY-Group **Free** plan only serves
+public repositories. Making this repository private would take
+`https://setlistdesigner.app` offline unless the organisation is first upgraded
+to GitHub Team or the site is moved to another host. The source of these pages
+is also tracked privately in `NBDY-Group/setlist-designer` under `Website/`.
+
 ## Deployment (live)
 
 Deployed with GitHub Pages from
