@@ -1,5 +1,19 @@
 # setlistdesigner.app — static site
 
+This repository is only the public marketing and legal static site for
+Setlist Designer, served by GitHub Pages at <https://setlistdesigner.app>; it
+is public by design. The app's source lives in the private
+`NBDY-Group/setlist-designer` repository, whose `Website/` folder is the source
+of truth for these pages — changes are published from there to here by the
+owner.
+
+Related NBDY-Group repositories:
+
+- `setlist-designer` — private; the Setlist Designer iOS app
+- `ios-app-factory` — private; harness that generates and works on the apps
+- `20.005` — private; the other iOS app (codename `liminal-fm`)
+- `Tourganise` — private; unrelated tour-management web SaaS
+
 Four static pages, no build step, no cookies, no analytics:
 
 - `index.html` — landing page
