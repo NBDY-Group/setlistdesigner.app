@@ -4,17 +4,31 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#090909">
-  <title>Setlist Designer — Build The Set. Plan Every Guitar Change.</title>
-  <meta name="description" content="Professional setlist software for tour managers and guitar techs. Design the set, plan every rig change, print a branded PDF and run the show offline.">
+  <title>Setlist Designer - Professional custom setlists</title>
+  <meta name="description" content="Build professional custom setlists, plan every guitar change, create world-class exports and run the show live on iPhone, iPad and Mac.">
   <link rel="canonical" href="https://setlistdesigner.app/">
-  <meta property="og:title" content="Setlist Designer — Design The Set. Run The Show.">
-  <meta property="og:description" content="Build setlists, plan guitar changes, print tour-ready pages and run Show Mode offline.">
+  <meta property="og:title" content="Setlist Designer - Professional custom setlists">
+  <meta property="og:description" content="Build professional custom setlists, plan every guitar change, create world-class exports and run the show live on iPhone, iPad and Mac.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://setlistdesigner.app/">
   <meta property="og:image" content="https://setlistdesigner.app/assets/app-icon.png">
   <link rel="icon" href="/assets/app-icon.png">
   <link rel="apple-touch-icon" href="/assets/app-icon.png">
-  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/styles.css?v=20260914">
+  <script>
+    (function () {
+      var params = new URLSearchParams(location.search);
+      var fromQuery = params.get("mode");
+      var valid = fromQuery === "setlist" || fromQuery === "guitar-tech";
+      var stored = null;
+      try { stored = localStorage.getItem("sld-mode"); } catch (e) {}
+      var mode = valid ? fromQuery : (stored === "guitar-tech" ? "guitar-tech" : "setlist");
+      document.documentElement.setAttribute("data-mode", mode);
+      if (valid) {
+        try { localStorage.setItem("sld-mode", fromQuery); } catch (e) {}
+      }
+    })();
+  </script>
 </head>
 <body class="marketing">
   <header class="site-header">
@@ -22,57 +36,82 @@
       <img class="wordmark-image" src="/assets/sld-wordmark.png" width="148" height="83" alt="">
     </a>
     <nav aria-label="Main navigation">
-      <a href="#workflow">Workflow</a>
-      <a href="#guitar-tech">Guitar Tech</a>
-      <a href="#export">Export</a>
-      <a href="/support/">Support</a>
+      <a href="#workflow" data-lane="setlist">The Setlist Design Workflow</a>
+      <a href="#guitar-tech" data-lane="guitar-tech">Guitar Changes</a>
+      <a href="#export">Export Setlists With Ease</a>
+      <a href="/support/">Contact Support</a>
     </nav>
-    <a class="button button-small" href="mailto:support@setlistdesigner.app?subject=Setlist%20Designer%20early%20access">Early Access</a>
+    <a class="button button-small" href="mailto:support@setlistdesigner.app?subject=Setlist%20Designer">Get Setlist Designer</a>
   </header>
+
+  <div class="mode-switch-bar">
+    <div class="mode-switch" role="tablist" aria-label="Browse examples for">
+      <button type="button" class="mode-tab" role="tab" id="mode-tab-setlist" data-mode-value="setlist" aria-selected="true" tabindex="0">Setlists</button>
+      <button type="button" class="mode-tab" role="tab" id="mode-tab-guitar-tech" data-mode-value="guitar-tech" aria-selected="false" tabindex="-1">Guitar Changes</button>
+    </div>
+  </div>
 
   <main class="landing">
     <section class="hero">
       <div class="hero-copy">
-        <p class="eyebrow">Professional Setlists For Touring Crews</p>
-        <h1>Design The Set.<br><span>Run The Show.</span></h1>
-        <p class="lede">Build tonight’s running order. Plan every guitar, tuning, capo, pack and stand change. Print a page the whole crew can read—or run it live from stage left.</p>
+        <p class="eyebrow">Professional Setlists, Guitar Changes &amp; Live Show Mode</p>
+        <h1>Design A Custom Setlist.<br><span>In Seconds</span></h1>
+        <p class="lede">Build from scratch, reuse a template or duplicate last night. Plan every instrument change, create world-class custom exports and run the show live.</p>
         <div class="cta-row">
-          <a class="button" href="#workflow">See The iPad Workflow</a>
-          <a class="text-link" href="mailto:support@setlistdesigner.app?subject=Setlist%20Designer%20early%20access">Ask About Early Access <span aria-hidden="true">↗</span></a>
+          <a class="button" href="mailto:support@setlistdesigner.app?subject=Setlist%20Designer">Get Setlist Designer</a>
+          <a class="text-link" href="mailto:support@setlistdesigner.app">Contact NBDY</a>
         </div>
-        <ul class="proof-row" aria-label="Product availability">
-          <li>iPhone · iPad · Mac</li>
-          <li>Works Fully Offline</li>
-          <li>A4 · US Letter · PDF</li>
-        </ul>
+        <p class="hero-price">£49.99 for the first year, then £99.99 per year.</p>
+        <div class="hero-features">
+          <p class="hero-features-kicker">Everything you need for the show</p>
+          <ul class="hero-feature-list" aria-label="What you get">
+            <li><i class="hero-feature-dot" aria-hidden="true"></i><span><strong>Per Artist Workspaces</strong><span>Song pool and custom guitar list</span></span></li>
+            <li><i class="hero-feature-dot" aria-hidden="true"></i><span><strong>Unlimited Setlists &amp; Templates</strong><span>Scratch, sample, template or duplicate</span></span></li>
+            <li><i class="hero-feature-dot" aria-hidden="true"></i><span><strong>Guitar Changes</strong><span>Tunings, packs, stands and photos</span></span></li>
+            <li><i class="hero-feature-dot" aria-hidden="true"></i><span><strong>Production Notes &amp; Files</strong><span>Sound, lighting, playback and private references</span></span></li>
+            <li><i class="hero-feature-dot" aria-hidden="true"></i><span><strong>Conflict Warnings</strong><span>Catch issues before the show</span></span></li>
+            <li><i class="hero-feature-dot" aria-hidden="true"></i><span><strong>Custom Branding</strong><span>Logos, versions and column control</span></span></li>
+            <li><i class="hero-feature-dot" aria-hidden="true"></i><span><strong>Dynamic Exports</strong><span>Readable PDFs on A4 or Letter</span></span></li>
+            <li><i class="hero-feature-dot" aria-hidden="true"></i><span><strong>Live Show Mode</strong><span>Current song, next change, screen stays awake</span></span></li>
+            <li><i class="hero-feature-dot" aria-hidden="true"></i><span><strong>Portable Backup</strong><span>One validated archive with every attachment</span></span></li>
+            <li><i class="hero-feature-dot" aria-hidden="true"></i><span><strong>Works Offline</strong><span>iPhone, iPad and Mac</span></span></li>
+            <li><i class="hero-feature-dot" aria-hidden="true"></i><span><strong>Private by Design</strong><span>No ads, no analytics, no tracking</span></span></li>
+          </ul>
+        </div>
       </div>
       <div class="hero-product">
-        <div class="device device-ipad device-landscape">
+        <div class="device device-ipad device-landscape" data-lane="setlist">
           <div class="device-camera" aria-hidden="true"></div>
           <div class="device-screen">
-            <img src="/assets/ipad-show-mode.png" width="2752" height="2064" alt="Setlist Designer Show Mode on iPad showing the current song and exact rig changes before the next song">
+            <img src="/assets/ipad-set-builder.png" width="2752" height="2064" alt="Setlist Designer running-order builder on iPad with songs, sections and notes">
           </div>
         </div>
-        <div class="product-callout callout-left"><strong>Now</strong><span>The full current rig</span></div>
-        <div class="product-callout callout-right"><strong>Next</strong><span>Every change as a checklist</span></div>
+        <div class="device device-ipad device-landscape" data-lane="guitar-tech">
+          <div class="device-camera" aria-hidden="true"></div>
+          <div class="device-screen">
+            <img class="contain-source" src="/assets/ipad-show-mode.png" width="2064" height="1548" loading="lazy" alt="Setlist Designer Show Mode on iPad showing the current song and exact rig changes before the next song">
+          </div>
+        </div>
+        <div class="product-callout callout-left" data-lane="guitar-tech"><strong>Now</strong><span>The full current rig</span></div>
+        <div class="product-callout callout-right" data-lane="guitar-tech"><strong>Next</strong><span>Every change as a checklist</span></div>
       </div>
     </section>
 
     <section class="audience-band" aria-label="Who Setlist Designer is for">
-      <article>
+      <a class="audience-card" href="#set-builder" data-set-mode="setlist">
         <span class="audience-number">01</span>
         <div>
-          <h2>For Tour Managers</h2>
+          <h2>For Show Planners</h2>
           <p>Build the running order, sections, timings and notes. Add the artist logo. Print a clean page before doors.</p>
         </div>
-      </article>
-      <article>
+      </a>
+      <a class="audience-card" href="#guitar-tech" data-set-mode="guitar-tech">
         <span class="audience-number">02</span>
         <div>
-          <h2>For Guitar Techs</h2>
+          <h2>For Guitar Changes</h2>
           <p>Assign every rig per song, catch conflicts before line check and see the next change before it happens.</p>
         </div>
-      </article>
+      </a>
     </section>
 
     <section id="workflow" class="section">
@@ -88,11 +127,11 @@
           <h3>Shape The Running Order</h3>
           <p>Pull from the song pool, reorder in seconds, add sections, breaks and encores, then put the right note under the right song.</p>
         </article>
-        <article class="feature-card">
+        <article class="feature-card" data-lane="guitar-tech">
           <svg class="feature-icon" aria-hidden="true"><use href="/assets/lucide.svg#guitar"></use></svg>
           <span class="feature-step">02 · Assign</span>
           <h3>Plan Every Rig</h3>
-          <p>Assign a guitar per musician, per song. Add capo, tuning, pack and stand overrides exactly where they change.</p>
+          <p>Assign a guitar per musician, per song. Add capo, tuning, pack and stand overrides exactly where they change, plus private handoff notes that never print.</p>
         </article>
         <article class="feature-card">
           <svg class="feature-icon" aria-hidden="true"><use href="/assets/lucide.svg#file-output"></use></svg>
@@ -103,15 +142,18 @@
       </div>
     </section>
 
-    <section class="product-section">
+    <section id="set-builder" class="product-section" data-lane="setlist">
       <div class="product-copy">
         <p class="eyebrow">The Setlist Builder</p>
         <h2>The Whole Night, In Order.</h2>
         <p>Working names stay useful backstage while print titles keep the page clean. Section dividers never steal song numbers. Notes stay attached to the cue they belong to.</p>
         <ul class="check-list">
           <li>Reusable song pool with key, BPM and length</li>
-          <li>Start from scratch, a template or an existing set</li>
+          <li>Reusable sound, lighting, playback and general production notes</li>
+          <li>Private PDF, image, scan and reference-audio attachments with native playback, drag-and-drop and optional image optimization</li>
+          <li>Start from scratch, a ready-made sample, a template or an existing set</li>
           <li>Breaks, speeches, acoustic sections and encores</li>
+          <li>Multi-select for batch song adds, group moves and safe removal</li>
           <li>Independent copies that never alter the original</li>
         </ul>
       </div>
@@ -125,9 +167,9 @@
       </div>
     </section>
 
-    <section id="guitar-tech" class="tech-section section">
+    <section id="guitar-tech" class="tech-section section" data-lane="guitar-tech">
       <div class="section-intro">
-        <p class="eyebrow">Built For Guitar Techs</p>
+        <p class="eyebrow">Built For Guitar Changes</p>
         <h2>Every Change Accounted For.</h2>
         <p>The guitar sheet is not an afterthought. It knows the difference between a default rig, tonight’s override and a one-song exception.</p>
       </div>
@@ -141,7 +183,7 @@
           <article>
             <svg class="feature-icon" aria-hidden="true"><use href="/assets/lucide.svg#radio-tower"></use></svg>
             <h3>Wired, Wireless, Overridden</h3>
-            <p>Keep the normal pack with the guitar, then override it for the exact song where the plan changes.</p>
+            <p>Keep the normal pack with the guitar, then override it for the exact song where the plan changes. Fill, copy or clear assignments and replace one guitar across the setlist.</p>
           </article>
           <article>
             <svg class="feature-icon" aria-hidden="true"><use href="/assets/lucide.svg#triangle-alert"></use></svg>
@@ -151,7 +193,7 @@
           <article>
             <svg class="feature-icon" aria-hidden="true"><use href="/assets/lucide.svg#monitor-play"></use></svg>
             <h3>Show Mode, Not A Tiny PDF</h3>
-            <p>Current rig, next rig and only the actions that change—large enough to read under pressure.</p>
+            <p>Switch between Next Action, Current Song and Full Set views, then mark each change ready from the screen, keyboard or page turner.</p>
           </article>
         </div>
         <div class="device-wrap device-wrap-accent">
@@ -165,26 +207,26 @@
       </div>
     </section>
 
-    <section class="show-section">
+    <section class="show-section" data-lane="guitar-tech">
       <div class="show-copy">
         <p class="eyebrow">Show Mode</p>
         <h2>See The Next Change Before It Happens.</h2>
-        <p>Not a static setlist. Not a cramped export. Show Mode compares the live rig with the next song and turns the difference into a clear action list.</p>
+        <p>Not a static setlist. Not a cramped export. Show Mode compares the live rig with the next song, turns the difference into a clear action list, keeps private operator notes close and lets you undo an accidental advance.</p>
         <div class="metric-row">
           <div><strong>Now</strong><span>Song, guitar, tuning, capo, pack, stand</span></div>
           <div><strong>Next</strong><span>Bring on, collect, swap, retune, move</span></div>
-          <div><strong>Safe</strong><span>Large controls, deliberate swipes, saved position</span></div>
+          <div><strong>Safe</strong><span>Three layouts, remappable controls, saved position</span></div>
         </div>
       </div>
     </section>
 
     <section id="export" class="export-section section">
-      <div class="section-intro">
+      <div class="section-intro" data-lane="guitar-tech">
         <p class="eyebrow">Rich, Branded Exports</p>
         <h2>Pin-Ready Tables. No Guesswork.</h2>
         <p>Every musician gets the same fixed subcolumns on every song. A hard 10-point type floor keeps the sheet readable at a distance, with automatic landscape and musician-group page splits when the table gets dense.</p>
       </div>
-      <div class="export-layout">
+      <div class="export-layout" data-lane="guitar-tech">
         <div class="device-wrap">
           <div class="device device-ipad device-landscape">
             <div class="device-camera" aria-hidden="true"></div>
@@ -201,12 +243,33 @@
           </div>
         </div>
       </div>
-      <div class="export-features">
+      <div class="export-features" data-lane="guitar-tech">
         <article><svg class="feature-icon" aria-hidden="true"><use href="/assets/lucide.svg#layout-template"></use></svg><h3>Grouped Tech Tables</h3><p>Guitar, tuning, capo, pack, stand, gauge and switcher stay in fixed subcolumns for each musician.</p></article>
-        <article><svg class="feature-icon" aria-hidden="true"><use href="/assets/lucide.svg#image"></use></svg><h3>Artist Branding</h3><p>Use the artist name, a round logo, or both—plus a version line under the header.</p></article>
+        <article><svg class="feature-icon" aria-hidden="true"><use href="/assets/lucide.svg#image"></use></svg><h3>Artist Branding</h3><p>Use the artist name, a round logo, or both - plus a version line under the header.</p></article>
         <article><svg class="feature-icon" aria-hidden="true"><use href="/assets/lucide.svg#notebook-pen"></use></svg><h3>Useful Notes</h3><p>Print per-song details when the crew needs them. Keep private guitar notes out of the export.</p></article>
         <article><svg class="feature-icon" aria-hidden="true"><use href="/assets/lucide.svg#file-output"></use></svg><h3>Distance-Readable</h3><p>Preview before output. Type never drops below 10 points; dense musician groups split across repeated table pages.</p></article>
       </div>
+
+      <div class="section-intro" data-lane="setlist">
+        <p class="eyebrow">Branded Exports</p>
+        <h2>One Clean Page Before Doors.</h2>
+        <p>Print the running order with your artist logo, sections and notes. Custom branding and column control, on A4 or US Letter.</p>
+      </div>
+      <ul class="check-list export-simple" data-lane="setlist">
+        <li>Artist logo and version line on every export</li>
+        <li>Sections, breaks and encores printed in order</li>
+        <li>Notes stay attached to the song they belong to</li>
+        <li>A4 or US Letter — long sets can span pages</li>
+      </ul>
+    </section>
+
+    <section class="mac-section section">
+      <div class="section-intro">
+        <p class="eyebrow">Designed For Mac</p>
+        <h2>The Whole Show, With Room To Work.</h2>
+        <p>Use the pointer and keyboard to build, assign and refine at full scale, then carry the same private iCloud workspace to iPhone or iPad for the show.</p>
+      </div>
+      <img class="mac-product-shot" src="/assets/mac-set-builder.png" width="2352" height="1552" loading="lazy" alt="Setlist Designer running on Mac with the Song Pool, setlist order and selected-song inspector visible together">
     </section>
 
     <section class="privacy-callout">
@@ -214,15 +277,15 @@
       <div>
         <p class="eyebrow">Private By Design</p>
         <h2>Your Show Data Is Not Our Business.</h2>
-        <p>No analytics. No ads. No tracking. No servers. Your setlists, guitar photos and notes stay on your devices and sync through your own private iCloud database.</p>
+        <p>No analytics. No ads. No tracking. No servers. Your setlists, guitar photos and notes stay on your devices and sync through your own private iCloud database. Export one validated Setlist Designer Archive whenever you want a portable backup.</p>
       </div>
     </section>
 
     <section class="final-cta">
       <p class="eyebrow">Setlist Designer</p>
       <h2>Build The Set. Plan The Changes. Print Tonight’s Page.</h2>
-      <p>Professional setlists for tour managers and guitar techs—on iPhone, iPad and Mac.</p>
-      <a class="button" href="mailto:support@setlistdesigner.app?subject=Setlist%20Designer%20early%20access">Ask About Early Access</a>
+      <p>Professional setlists, guitar-change planning and live Show Mode - on iPhone, iPad and Mac.</p>
+      <a class="button" href="mailto:support@setlistdesigner.app?subject=Setlist%20Designer">Get Setlist Designer</a>
     </section>
   </main>
 
@@ -237,7 +300,9 @@
     <span class="spacer"></span>
     <a href="/privacy/">Privacy</a>
     <a href="/terms/">Terms</a>
-    <a href="/support/">Support</a>
+    <a href="/support/">Contact Support</a>
   </footer>
+
+  <script src="/mode-switch.js" defer></script>
 </body>
 </html>
