@@ -375,6 +375,56 @@ body.marketing {
   justify-self: end;
 }
 
+.mode-switch-bar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  display: flex;
+  justify-content: center;
+  padding: 10px 24px;
+  background: rgba(9, 9, 9, 0.86);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+}
+
+.mode-switch {
+  display: inline-flex;
+  padding: 4px;
+  gap: 4px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--pane);
+}
+
+.mode-tab {
+  appearance: none;
+  border: 0;
+  border-radius: 999px;
+  padding: 9px 18px;
+  font-size: 13px;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+  color: var(--secondary);
+  background: transparent;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 160ms ease, color 160ms ease;
+}
+
+.mode-tab:hover {
+  color: var(--primary);
+}
+
+.mode-tab[aria-selected="true"] {
+  background: var(--accent);
+  color: #07100a;
+}
+
+.mode-tab:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
 .marketing .button {
   display: inline-flex;
   min-height: 48px;
@@ -469,6 +519,14 @@ body.marketing {
   flex-wrap: wrap;
 }
 
+.hero-price {
+  margin: 14px 0 0;
+  max-width: 610px;
+  color: #c5c5c5;
+  font-size: 15px;
+  line-height: 1.45;
+}
+
 .text-link {
   color: var(--primary);
   font-size: 15px;
@@ -481,33 +539,83 @@ body.marketing {
   color: var(--accent);
 }
 
-.proof-row {
-  margin: 38px 0 0;
-  padding: 18px 0 0;
-  display: flex;
-  gap: 13px 22px;
-  flex-wrap: wrap;
-  list-style: none;
-  border-top: 1px solid var(--line);
+.hero-features {
+  margin: 34px 0 0;
+  padding: 14px 16px 8px;
+  max-width: 610px;
+  border: 1px solid var(--line);
+  background: var(--pane);
 }
 
-.proof-row li {
-  margin: 0;
-  color: var(--tertiary);
-  font: 600 11px/1.4 ui-monospace, "SF Mono", SFMono-Regular, Menlo, monospace;
-  letter-spacing: 0.05em;
+.hero-features-kicker {
+  margin: 0 0 6px;
+  color: var(--accent);
+  font: 700 11px/1.2 ui-monospace, "SF Mono", SFMono-Regular, Menlo, monospace;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
-.proof-row li::before {
-  content: "";
+.hero-feature-list {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}
+
+.hero-feature-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  padding: 7px 0;
+  border-bottom: 1px solid rgba(245, 245, 245, 0.06);
+}
+
+.hero-feature-list li:last-child {
+  border-bottom: 0;
+}
+
+.hero-feature-dot {
+  display: block;
+  flex: 0 0 6px;
+  align-self: center;
   width: 6px;
   height: 6px;
-  margin-right: 8px;
-  display: inline-block;
+  font-style: normal;
   border-radius: 50%;
   background: var(--accent);
-  box-shadow: 0 0 12px rgba(48, 209, 88, 0.7);
+  box-shadow: 0 0 10px rgba(48, 209, 88, 0.7);
+}
+
+.hero-feature-list li > span {
+  display: block;
+  flex: 1;
+  min-width: 0;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.hero-feature-list strong,
+.hero-feature-list li > span > span {
+  display: inline;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.hero-feature-list strong {
+  color: var(--primary);
+  font-weight: 650;
+}
+
+.hero-feature-list strong::after {
+  content: " - ";
+  font-weight: 500;
+  color: var(--secondary);
+}
+
+.hero-feature-list li > span > span {
+  color: var(--secondary);
 }
 
 .hero-product {
@@ -577,6 +685,25 @@ body.marketing {
   object-fit: cover;
 }
 
+.device-screen img.contain-source {
+  object-fit: contain;
+}
+
+.mac-section {
+  text-align: center;
+}
+
+.mac-product-shot {
+  display: block;
+  width: min(100%, 1180px);
+  height: auto;
+  margin: 42px auto 0;
+  border: 1px solid #4a4f4b;
+  border-radius: 24px;
+  background: #080908;
+  box-shadow: 0 36px 90px rgba(0, 0, 0, 0.52);
+}
+
 .product-callout {
   position: absolute;
   z-index: 5;
@@ -625,18 +752,29 @@ body.marketing {
   grid-template-columns: 1fr 1fr;
 }
 
-.audience-band article {
+.audience-card {
   min-height: 210px;
   padding: 52px max(5vw, calc((100vw - 1240px) / 2));
   display: grid;
   grid-template-columns: 54px minmax(0, 520px);
   align-content: center;
   gap: 20px;
+  color: inherit;
+  text-decoration: none;
 }
 
-.audience-band article:first-child {
+.audience-card:first-child {
   padding-left: max(24px, calc((100vw - 1240px) / 2));
   border-right: 1px solid var(--line);
+}
+
+.audience-card:hover h2 {
+  color: var(--accent);
+}
+
+.audience-card:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -4px;
 }
 
 .audience-number {
@@ -798,6 +936,7 @@ body.marketing {
 
 .device-wrap-accent {
   position: relative;
+  overflow: clip;
 }
 
 .device-wrap-accent::before {
@@ -1037,6 +1176,10 @@ body.marketing {
     max-width: 760px;
   }
 
+  .hero-features {
+    max-width: 100%;
+  }
+
   .hero-product {
     width: min(900px, 100%);
     justify-self: center;
@@ -1060,6 +1203,22 @@ body.marketing {
   }
 }
 
+@media (max-width: 1100px) and (min-width: 980px) {
+  .hero-copy {
+    max-width: 920px;
+  }
+
+  .hero-feature-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 28px;
+  }
+
+  .hero-feature-list li:nth-last-child(-n + 2) {
+    border-bottom: 0;
+  }
+}
+
 @media (max-width: 800px) {
   .audience-band,
   .feature-grid,
@@ -1067,13 +1226,13 @@ body.marketing {
     grid-template-columns: 1fr;
   }
 
-  .audience-band article,
-  .audience-band article:first-child {
+  .audience-card,
+  .audience-card:first-child {
     padding: 36px 24px;
     border-right: 0;
   }
 
-  .audience-band article + article {
+  .audience-card + .audience-card {
     border-top: 1px solid var(--line);
   }
 
@@ -1155,8 +1314,21 @@ body.marketing {
     flex-direction: column;
   }
 
-  .proof-row {
-    display: grid;
+  .hero-features {
+    max-width: 100%;
+  }
+
+  .hero-feature-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero-feature-list li:nth-last-child(-n + 2) {
+    border-bottom: 1px solid rgba(245, 245, 245, 0.06);
+  }
+
+  .hero-feature-list li:last-child {
+    border-bottom: 0;
   }
 
   .device {
@@ -1228,6 +1400,38 @@ body.marketing {
 
   .final-cta {
     padding: 110px 0;
+  }
+}
+
+/* Setlist Mode / Guitar Tech Mode lanes */
+
+.export-simple {
+  max-width: 620px;
+}
+
+@media (min-width: 801px) {
+  html[data-mode="setlist"] .feature-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+html[data-mode="setlist"] [data-lane="guitar-tech"],
+html:not([data-mode]) [data-lane="guitar-tech"] {
+  display: none;
+}
+
+html[data-mode="guitar-tech"] [data-lane="setlist"] {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .mode-switch-bar {
+    padding: 8px 16px;
+  }
+
+  .mode-tab {
+    padding: 9px 14px;
+    font-size: 12px;
   }
 }
 

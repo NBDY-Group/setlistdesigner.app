@@ -166,48 +166,48 @@
 <body>
   <div class="masthead">
     <img class="brand" src="/assets/sld-wordmark.png" alt="Setlist Designer">
-    <span class="platform">iPhone · iPad · Mac</span>
+    <span class="platform">Built for iPhone, iPad & Mac</span>
   </div>
   <main class="copy">
     <p class="kicker" id="kicker">Setlist builder</p>
-    <h1 id="headline">Build The Set.<br><span class="accent">Keep It Clear.</span></h1>
-    <p class="subhead" id="subhead">Songs, sections, notes and running order in one deliberate workflow.</p>
+    <h1 id="headline">Professional custom setlist designs in seconds.</h1>
+    <p class="subhead" id="subhead">Songpool per artist, custom dividers, custom notes and more. All in one easy to use interface.</p>
   </main>
   <div class="device">
     <div class="screen">
       <img id="product" src="/assets/iphone-set-builder.png" alt="">
-      <div class="pill" id="pill">Set-ready in minutes</div>
+      <div class="pill" id="pill">Custom setlists & guitar change planning with ease.</div>
     </div>
   </div>
   <script>
     const shots = {
       build: {
-        kicker: "Setlist builder",
-        headline: "Build The Set.<br><span class=\"accent\">Keep It Clear.</span>",
-        subhead: "Songs, sections, notes and running order in one deliberate workflow.",
+        kicker: "Build Fast",
+        headline: "From song pool to show-ready setlist.",
+        subhead: "Start fresh, explore the sample, reuse a template or duplicate last night. Sections, timings and notes stay exactly where they belong.",
         image: "/assets/iphone-set-builder.png",
-        pill: "Templates · copies · song pool"
+        pill: "Per-artist song pools · Unlimited reusable templates"
       },
       assign: {
-        kicker: "Guitar tech workflow",
-        headline: "Plan Every Change.<br><span class=\"accent\">Miss Nothing.</span>",
-        subhead: "Assign guitars, tunings, capos, packs and stand slots song by song.",
+        kicker: "Guitar Changes",
+        headline: "Every instrument change. Accounted for.",
+        subhead: "Plan tunings, capos, packs, stands and handoffs for up to three musicians.",
         image: "/assets/iphone-assign.png",
-        pill: "Rig conflicts warned early"
+        pill: "Duplicate-pack and missing-assignment warnings built in"
       },
       show: {
         kicker: "Show Mode",
-        headline: "Now. Next.<br><span class=\"accent\">Exactly What Changes.</span>",
-        subhead: "Large live cues keep every musician and every rig change visible under pressure.",
+        headline: "See the next change before it happens.",
+        subhead: "Switch live layouts, mark changes ready and control the set from a page turner—even offline.",
         image: "/assets/iphone-show-mode.png",
-        pill: "Works fully offline"
+        pill: "Next Action · Current Song · Full Set"
       },
       export: {
-        kicker: "Rich, branded exports",
-        headline: "Pin-Ready Tables.<br><span class=\"accent\">No Guesswork.</span>",
-        subhead: "Fixed musician subcolumns and a hard 10-point minimum keep every rig cue readable.",
+        kicker: "Rich, Branded Exports",
+        headline: "A professional page, every time.",
+        subhead: "Design independent Artist Setlists and Guitar Change Sheets with live, readable previews.",
         image: "/assets/iphone-export.png",
-        pill: "10 pt minimum · smart page splits"
+        pill: "A4 & Letter · Custom branding · Smart pagination"
       }
     };
     const key = new URLSearchParams(location.search).get("shot") || "build";
