@@ -34,20 +34,20 @@ The app links to these exact URLs (see `App/AppLinks.swift`):
 
 ## Remaining owner steps
 
-- [ ] Approve publishing the reconciled `Website/` source. The live site still
-      reflects pre-unification role labels and free-trial wording; copy this
-      folder to the website repository, merge through its normal review path,
-      then verify all four HTTPS pages at desktop and mobile widths.
+- [x] Reconciled source published through
+      [website PR #8](https://github.com/NBDY-Group/setlistdesigner.app/pull/8)
+      on 15 September 2026. The live home, support, privacy, and terms pages
+      were verified at desktop and 390-point mobile widths with no missing
+      images or horizontal overflow.
 - [x] Owner accepted the version 1.0 privacy policy, App Store privacy
       declarations, subscription terms, content/performance liability terms,
       publisher identity, and England-and-Wales governing-law choice on
       15 September 2026.
-- [ ] In Namecheap, open Domain List → `setlistdesigner.app` → Manage →
-      Redirect Email and forward `support@setlistdesigner.app` to the owner
-      business inbox used in `SECURITY.md`. Send a test from an unrelated
-      account and verify both delivery and the reply identity.
+- [x] `support@setlistdesigner.app` forwards to the owner business inbox.
+      Delivery from an unrelated account and the reply identity were both
+      verified on 15 September 2026.
 - [ ] Replace the App Store link on `index.html` with the real product URL
       once the app is listed.
-- [ ] In App Store Connect, set the Privacy Policy URL to
-      `https://setlistdesigner.app/privacy` and the Support URL to
-      `https://setlistdesigner.app/support`.
+- [x] App Store Connect Privacy, Support, and Marketing URLs are set on the
+      accepted app information plus both iOS and Mac 1.0 drafts. Verified
+      idempotently on 15 September 2026 without submitting either version.
